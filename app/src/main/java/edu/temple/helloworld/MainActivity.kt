@@ -24,8 +24,12 @@ class MainActivity : AppCompatActivity() {
 
         
         findViewById<Button>(R.id.clickMeButton).setOnClickListener {
-            displayTextView.text = "Hello, ${nameEditText.text}"
-
+            if (nameEditText.text.isEmpty()) {
+                displayTextView.error = "Please Enter a Name"
+            } else {
+                displayTextView.error = null
+                displayTextView.text = "Hello, ${nameEditText.text}"
+            }
         }
 
 
